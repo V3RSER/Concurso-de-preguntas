@@ -1,0 +1,2 @@
+class Ronda:
+    pass

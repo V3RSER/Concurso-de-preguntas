@@ -1,0 +1,2 @@
+class Pregunta():
+    pass

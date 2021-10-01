@@ -1,0 +1,2 @@
+class Respuesta:
+    pass
