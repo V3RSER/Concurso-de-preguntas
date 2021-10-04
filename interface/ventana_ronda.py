@@ -1,4 +1,6 @@
 import sys
+from tkinter import RIGHT
+
 from PIL import Image, ImageTk
 
 try:
@@ -26,6 +28,8 @@ class VentanaRonda:
         self.style = ttk.Style()
         self.concurso = concurso
         self.interfaz = interfaz
+        self.derrota = False
+        self.victoria = False
         if sys.platform == "win32":
             self.style.theme_use('winnative')
         self.style.configure('.',background=_colorFondo)
@@ -178,14 +182,28 @@ class VentanaRonda:
                     self.respuesta_incorrecta()
 
     def respuesta_incorrecta(self):
-        self.textoPregunta.configure(text="I N C O R R E C T O")
+        self.textoPregunta.configure(text="P I E R D E S")
+        self.concurso.finalizar("derrota")
+        self.derrota = True
 
     def respuesta_correcta(self):
-        self.textoPregunta.configure(text="C O R R E C T O")
-        self.botonAdelante.configure(cursor="hand2", state='normal')
+        if self.concurso.obtener_ronda_actual().obtener_id() == 5:
+            self.textoPregunta.configure(text="G A N A S T E")
+            self.victoria = True
+        else:
+            self.botonAdelante.configure(cursor="hand2", state='normal')
+            self.textoPregunta.configure(text="C O R R E C T O")
+
+        self.concurso.aumentarRonda()
         self.textoDinero.configure(text=self.concurso.obtener_dinero_actual())
+        if self.victoria:
+            self.concurso.finalizar("victoria")
 
     def boton_hogar(self):
+        ronda = self.concurso.obtener_ronda_actual().obtener_id()
+        if (ronda > 1) & (ronda < 5) & (not self.derrota):
+            self.concurso.finalizar("retirado")
         self.ventana.destroy()
         self.ventana = None
+        self.interfaz.guardar_jugadores()
         self.interfaz.crear_ventana_inicio()

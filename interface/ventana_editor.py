@@ -1,7 +1,6 @@
 import pickle
 import sys
 from tkinter import INSERT, END
-
 from PIL import Image, ImageTk
 
 from classes.pregunta import Pregunta
@@ -282,7 +281,7 @@ class VentanaEditor:
                      self.categorias[3].obtener_preguntas(),
                      self.categorias[4].obtener_preguntas()]
         with open('data/preguntas.dat', 'wb') as f:
-            pickle.dump([preguntas], f, protocol=2)
+            pickle.dump(preguntas, f, protocol=2)
 
     def siguiente_categoria(self):
         if self.categoria_actual < (len(self.categorias) - 1):
@@ -307,10 +306,7 @@ class VentanaEditor:
             self.actualizar_ventana()
 
     def obtener_pregunta_actual(self):
-        #print(f"self.obtener_preguntas_actuales(){self.obtener_preguntas_actuales()}")
-        #print(f"self.[self.pregunta_actual](){self.pregunta_actual}")
-
-        return self.obtener_preguntas_actuales()[self.pregunta_actual]
+       return self.obtener_preguntas_actuales()[self.pregunta_actual]
 
     def obtener_preguntas_actuales(self):
         return self.obtener_categoria_actual().obtener_preguntas()
@@ -354,133 +350,134 @@ class VentanaEditor:
         self.categorias[4].agregar_preguntas([])
 
         Pregunta("¿Quién descubrió América?", self.categorias[0], [
-                Respuesta("Cristóbal Colón", "valida"),
-                Respuesta("Simón Bolívar", "errada"),
-                Respuesta("Rafael Nuñez", "errada"),
-                Respuesta("Antonio Nariño", "errada")
+            Respuesta("Cristóbal Colón", "valida"),
+            Respuesta("Simón Bolívar", "errada"),
+            Respuesta("Rafael Nuñez", "errada"),
+            Respuesta("Antonio Nariño", "errada")
         ])
         Pregunta("¿A cuánto equivale el numero Pi?", self.categorias[0], [
-                Respuesta("3.1416", "valida"),
-                Respuesta("3.1614", "errada"),
-                Respuesta("3.1514", "errada"),
-                Respuesta("3.1615  ", "errada")
+            Respuesta("3.1416", "valida"),
+            Respuesta("3.1614", "errada"),
+            Respuesta("3.1514", "errada"),
+            Respuesta("3.1615  ", "errada")
         ])
         Pregunta("¿Cuál es el animal más rápido del mundo?", self.categorias[0], [
-                Respuesta("Guepardo", "valida"),
-                Respuesta("Cóndor", "errada"),
-                Respuesta("Leopardo", "errada"),
-                Respuesta("Avestruz", "errada")
+            Respuesta("Guepardo", "valida"),
+            Respuesta("Cóndor", "errada"),
+            Respuesta("Leopardo", "errada"),
+            Respuesta("Avestruz", "errada")
         ])
-        Pregunta("¿Cómo se llama el proceso por medio del cual las plantas obtienen su alimento?", self.categorias[0], [
-                Respuesta("Fotosíntesis", "valida"),
-                Respuesta("Biosíntesis", "errada"),
-                Respuesta("Luminosíntesis", "errada"),
-                Respuesta("Biosíntesos", "errada")
-        ])
+        Pregunta("¿Cómo se llama el proceso por medio del cual \nlas plantas obtienen su alimento?", self.categorias[0],
+                 [
+                     Respuesta("Fotosíntesis", "valida"),
+                     Respuesta("Biosíntesis", "errada"),
+                     Respuesta("Luminosíntesis", "errada"),
+                     Respuesta("Biosíntesos", "errada")
+                 ])
         Pregunta("¿Cómo se le denomina al centro de un átomo?", self.categorias[0], [
-                Respuesta("Núcleo", "valida"),
-                Respuesta("Electrón", "errada"),
-                Respuesta("Protón", "errada"),
-                Respuesta("Quark", "errada")
+            Respuesta("Núcleo", "valida"),
+            Respuesta("Electrón", "errada"),
+            Respuesta("Protón", "errada"),
+            Respuesta("Quark", "errada")
         ])
         Pregunta("¿Cuántos días hay en un año bisiesto?", self.categorias[1], [
-                Respuesta("366", "valida"),
-                Respuesta("365", "errada"),
-                Respuesta("364", "errada"),
-                Respuesta("355", "errada")
+            Respuesta("366", "valida"),
+            Respuesta("365", "errada"),
+            Respuesta("364", "errada"),
+            Respuesta("355", "errada")
         ])
         Pregunta("¿Cuál es el animal más grande del mundo?", self.categorias[1], [
-                Respuesta("La ballena azul", "valida"),
-                Respuesta("El elefante", "errada"),
-                Respuesta("La jirafa", "errada"),
-                Respuesta("El cachalote", "errada")
+            Respuesta("La ballena azul", "valida"),
+            Respuesta("El elefante", "errada"),
+            Respuesta("La jirafa", "errada"),
+            Respuesta("El cachalote", "errada")
         ])
         Pregunta("¿Cuántas patas tiene la araña?", self.categorias[1], [
-                Respuesta("8", "valida"),
-                Respuesta("6", "errada"),
-                Respuesta("10", "errada"),
-                Respuesta("12", "errada")
+            Respuesta("8", "valida"),
+            Respuesta("6", "errada"),
+            Respuesta("10", "errada"),
+            Respuesta("12", "errada")
         ])
-        Pregunta("¿Quién era el general de los Nazis en la Segunda Guerra Mundial?", self.categorias[1], [
-                Respuesta("Adolf Hitler", "valida"),
-                Respuesta("Heinrich Himmler", "errada"),
-                Respuesta("Benito Mussolini", "errada"),
-                Respuesta("Boris Becker", "errada")
+        Pregunta("¿Quién era el general de los Nazis \nen la Segunda Guerra Mundial?", self.categorias[1], [
+            Respuesta("Adolf Hitler", "valida"),
+            Respuesta("Heinrich Himmler", "errada"),
+            Respuesta("Benito Mussolini", "errada"),
+            Respuesta("Boris Becker", "errada")
         ])
         Pregunta("¿Cuál fue el primer hombre en ir a la luna?", self.categorias[1], [
-                Respuesta("Neil Armstrong", "valida"),
-                Respuesta("Louis Armstrong", "errada"),
-                Respuesta("Michael Armstrong", "errada"),
-                Respuesta("Lance Armstrongr", "errada")
+            Respuesta("Neil Armstrong", "valida"),
+            Respuesta("Louis Armstrong", "errada"),
+            Respuesta("Michael Armstrong", "errada"),
+            Respuesta("Lance Armstrongr", "errada")
         ])
-        Pregunta("¿Cuál es el primero de la lista de los números primos?", self.categorias[2], [
-                Respuesta("2", "valida"),
-                Respuesta("0", "errada"),
-                Respuesta("1", "errada"),
-                Respuesta("3", "errada")
+        Pregunta("¿Cuál es el primero de la lista \nde los números primos?", self.categorias[2], [
+            Respuesta("2", "valida"),
+            Respuesta("0", "errada"),
+            Respuesta("1", "errada"),
+            Respuesta("3", "errada")
         ])
         Pregunta("¿Cuál es el océano más grande del mundo?", self.categorias[2], [
-                Respuesta("Océano Pacífico", "valida"),
-                Respuesta("Océano Índico", "errada"),
-                Respuesta("Océano Atlántico", "errada"),
-                Respuesta("Océano Ártico", "errada")
+            Respuesta("Océano Pacífico", "valida"),
+            Respuesta("Océano Índico", "errada"),
+            Respuesta("Océano Atlántico", "errada"),
+            Respuesta("Océano Ártico", "errada")
         ])
         Pregunta("¿Quién era el dios griego de la guerra?", self.categorias[2], [
-                Respuesta("Ares", "valida"),
-                Respuesta("Zeus", "errada"),
-                Respuesta("Marte", "errada"),
-                Respuesta("Hades", "errada")
+            Respuesta("Ares", "valida"),
+            Respuesta("Zeus", "errada"),
+            Respuesta("Marte", "errada"),
+            Respuesta("Hades", "errada")
         ])
         Pregunta("¿Cuál es el país más grande del mundo?", self.categorias[2], [
-                Respuesta("Rusia", "valida"),
-                Respuesta("China", "errada"),
-                Respuesta("India", "errada"),
-                Respuesta("Canadá", "errada")
+            Respuesta("Rusia", "valida"),
+            Respuesta("China", "errada"),
+            Respuesta("India", "errada"),
+            Respuesta("Canadá", "errada")
         ])
         Pregunta("¿Cuál es la nación más pequeña del mundo?", self.categorias[2], [
-                Respuesta("El Vaticano", "valida"),
-                Respuesta("Mónaco", "errada"),
-                Respuesta("Andorra", "errada"),
-                Respuesta("Portugal", "errada")
+            Respuesta("El Vaticano", "valida"),
+            Respuesta("Mónaco", "errada"),
+            Respuesta("Andorra", "errada"),
+            Respuesta("Portugal", "errada")
         ])
         Pregunta("¿Quién es el padre del psicoanálisis?", self.categorias[3], [
-                Respuesta("Sigmund Freud", "valida"),
-                Respuesta("Carl Gustav Jung", "errada"),
-                Respuesta("Skinner", "errada"),
-                Respuesta("Viktor Frankl", "errada")
+            Respuesta("Sigmund Freud", "valida"),
+            Respuesta("Carl Gustav Jung", "errada"),
+            Respuesta("Skinner", "errada"),
+            Respuesta("Viktor Frankl", "errada")
         ])
         Pregunta("¿Quién escribió La Odisea?", self.categorias[3], [
-                Respuesta("Homero", "valida"),
-                Respuesta("Virgilio", "errada"),
-                Respuesta("Cervantes", "errada"),
-                Respuesta("Kafka", "errada")
+            Respuesta("Homero", "valida"),
+            Respuesta("Virgilio", "errada"),
+            Respuesta("Cervantes", "errada"),
+            Respuesta("Kafka", "errada")
         ])
-        Pregunta("¿Cuál es la obra más importante de la literatura en español?", self.categorias[3], [
-                Respuesta("Don Quijote de la Mancha", "valida"),
-                Respuesta("El Principito", "errada"),
-                Respuesta("Cien años de soledad", "errada"),
-                Respuesta("Romeo y Julieta", "errada")
+        Pregunta("¿Cuál es la obra más importante \nde la literatura en español?", self.categorias[3], [
+            Respuesta("Don Quijote de la Mancha", "valida"),
+            Respuesta("El Principito", "errada"),
+            Respuesta("Cien años de soledad", "errada"),
+            Respuesta("Romeo y Julieta", "errada")
         ])
         Pregunta("¿Quién pintó La noche estrellada?", self.categorias[3], [
-                Respuesta("Vincent van Gogh", "valida"),
-                Respuesta("Rembrandt", "errada"),
-                Respuesta("Velazquez", "errada"),
-                Respuesta("Leonardo da Vinci", "errada")
+            Respuesta("Vincent van Gogh", "valida"),
+            Respuesta("Rembrandt", "errada"),
+            Respuesta("Velazquez", "errada"),
+            Respuesta("Leonardo da Vinci", "errada")
         ])
-        Pregunta("¿¿Cuál es la única ciudad que está en dos continentes distintos??", self.categorias[3], [
-                Respuesta("Estambul", "valida"),
-                Respuesta("Moscú", "errada"),
-                Respuesta("Berlín   ", "errada"),
-                Respuesta("Denver", "errada")
+        Pregunta("¿¿Cuál es la única ciudad que está \nen dos continentes distintos??", self.categorias[3], [
+            Respuesta("Estambul", "valida"),
+            Respuesta("Moscú", "errada"),
+            Respuesta("Berlín   ", "errada"),
+            Respuesta("Denver", "errada")
         ])
-        Pregunta("¿Cómo se llama la estrofa poética que está conformada por 10 versos de 8 sílabas cada uno?",
+        Pregunta("¿Cómo se llama la estrofa poética que \nestá conformada por 10 versos de 8 sílabas cada uno?",
                  self.categorias[4], [
                      Respuesta("Décima espinela", "valida"),
                      Respuesta("Decasílabo", "errada"),
                      Respuesta("Decasílabo octogonal", "errada"),
                      Respuesta("Décima octava", "errada")
-         ])
-        Pregunta("¿En qué parte del cuerpo se produce la insulina?", self.categorias[4], [
+                 ])
+        Pregunta("¿En qué parte del cuerpo se produce la \ninsulina?", self.categorias[4], [
             Respuesta("Páncreas", "valida"),
             Respuesta("Hígado", "errada"),
             Respuesta("Cerebro", "errada"),

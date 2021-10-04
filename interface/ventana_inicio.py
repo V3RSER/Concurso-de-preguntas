@@ -48,10 +48,10 @@ class VentanaInicio:
         self.botonEditor.configure(command=self.boton_editor)
         self.botonEditor.configure(text='''Editor''')
 
-        self.botonOpciones = tk.Button(self.ventana)
-        self.botonOpciones.place(relx=0.32, rely=0.616, height=37, width=160)
-        self.botonOpciones.configure(command=self.boton_opciones)
-        self.botonOpciones.configure(text='''Opciones''')
+        self.botonHistorial = tk.Button(self.ventana)
+        self.botonHistorial.place(relx=0.32, rely=0.616, height=37, width=160)
+        self.botonHistorial.configure(command=self.boton_historial)
+        self.botonHistorial.configure(text='''Historial''')
 
         self.botonSalir = tk.Button(self.ventana)
         self.botonSalir.place(relx=0.32, rely=0.821, height=37, width=160)
@@ -59,7 +59,7 @@ class VentanaInicio:
         self.botonSalir.configure(text='''Salir''')
 
         self.botonesMenu = [self.botonIniciar,  self.botonEditor,
-                            self.botonOpciones,  self.botonSalir]
+                            self.botonHistorial,  self.botonSalir]
 
         for botonMenu in self.botonesMenu:
             botonMenu.configure(font=_fuenteMont11, takefocus="")
@@ -90,8 +90,9 @@ class VentanaInicio:
         self.cerrar()
         self.interfaz.crear_ventana_editor()
 
-    def boton_opciones(self):
-        pass
+    def boton_historial(self):
+        self.cerrar()
+        self.interfaz.crear_ventana_registro()
 
     def cerrar(self):
         self.ventana.destroy()
