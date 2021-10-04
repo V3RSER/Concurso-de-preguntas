@@ -34,3 +34,6 @@ class Concurso:
 
     def obtener_dinero_actual(self):
         return self.jugador.obtener_billetera()
+
+    def obtener_rondas(self):
+        return self.rondas

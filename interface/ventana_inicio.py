@@ -31,10 +31,8 @@ class VentanaInicio:
         self.style.map('.',background=
             [('selected', _compcolor), ('active',_ana2color)])
 
-        self.ventana.geometry("500x487+504+110")
-        self.ventana.minsize(120, 1)
-        self.ventana.maxsize(1604, 881)
-        self.ventana.resizable(1,  1)
+        self.ventana.geometry("500x500+600+100")
+        self.ventana.resizable(0,  0)
         self.ventana.title("Concurso de preguntas")
         self.ventana.configure(background="#484848")
         self.ventana.configure(highlightbackground="#d9d9d9")
@@ -89,7 +87,8 @@ class VentanaInicio:
         self.interfaz.crear_ventana_ronda()
 
     def boton_editor(self):
-        pass
+        self.cerrar()
+        self.interfaz.crear_ventana_editor()
 
     def boton_opciones(self):
         pass

@@ -7,12 +7,10 @@ class Ronda:
         self.categoria = categoria
         self.premio = premio
 
-
-
     def obtener_id(self):
         return self.id
 
-    def obtener_categoriao(self):
+    def obtener_categoria(self):
         return self.categoria
 
     def obtener_premio(self):
